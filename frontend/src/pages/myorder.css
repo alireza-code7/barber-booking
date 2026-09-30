@@ -1,0 +1,1005 @@
+/* =========================================================
+   1. RESET & VARIABLES
+   ========================================================= */
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f7f8;
+    --bg-tertiary: #f0f0f2;
+
+    --text-main: #18181b;
+    --text-muted: #6f7077;
+    --text-light: #9b9ca3;
+
+    --border-light: #dedee2;
+    --border-subtle: #ededf0;
+
+    --accent-black: #111113;
+    --accent-hover: #29292d;
+
+    /* Status */
+    --status-confirmed-bg: #edf9f3;
+    --status-confirmed-text: #08784f;
+    --status-confirmed-border: #b8e8d2;
+
+    --status-pending-bg: #fff9e9;
+    --status-pending-text: #a76500;
+    --status-pending-border: #f2d58b;
+
+    --status-rejected-bg: #fff0f0;
+    --status-rejected-text: #b42323;
+    --status-rejected-border: #f2c1c1;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    --shadow-subtle:
+        0 1px 2px rgba(0, 0, 0, 0.03),
+        0 4px 12px rgba(0, 0, 0, 0.025);
+
+    --shadow-card:
+        0 2px 5px rgba(0, 0, 0, 0.025),
+        0 8px 24px rgba(0, 0, 0, 0.035);
+
+    --shadow-hover:
+        0 5px 10px rgba(0, 0, 0, 0.035),
+        0 16px 35px rgba(0, 0, 0, 0.07);
+
+    --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+        @font-face {
+    font-family: "vazir";
+    src: url("Vazirmatn-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "vazir";
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   3. PAGE
+   ========================================================= */
+
+body {
+    line-height: 1.6;
+}
+
+.order-page-wrapper {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px 16px 80px 16px;
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+.page-header {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fafafa 100%
+        );
+
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+
+    padding: 24px 28px;
+    margin-bottom: 24px;
+
+    box-shadow: var(--shadow-subtle);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+    gap: 16px;
+
+    transition: var(--transition);
+}
+
+.page-header:hover {
+    box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.03),
+        0 12px 28px rgba(0, 0, 0, 0.045);
+}
+
+
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.header-icon {
+    width: 52px;
+    height: 52px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f3f3f4,
+            #e9e9eb
+        );
+
+    color: #161618;
+
+    border-radius: var(--radius-md);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    border: 1px solid #dedee1;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 3px 8px rgba(0, 0, 0, 0.035);
+
+    transition: var(--transition);
+}
+
+.header-icon:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 7px 16px rgba(0, 0, 0, 0.07);
+}
+
+
+.header-text h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+
+.header-text p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+
+.count-highlight {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 25px;
+    height: 25px;
+
+    padding: 0 7px;
+    margin-right: 5px;
+
+    background: #eeeeef;
+    color: #202023;
+
+    border-radius: 7px;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    border: 1px solid #e1e1e3;
+}
+
+
+/* =========================================================
+   5. PRIMARY BUTTON
+   ========================================================= */
+.btn-primary {
+    background:
+        linear-gradient(
+            145deg,
+            #171719,
+            #09090b
+        );
+
+    color: #ffffff;
+
+    border: 1px solid #050506;
+
+    padding: 12px 28px;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    border-radius: var(--radius-md);
+
+    cursor: pointer;
+    transition: var(--transition);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.btn-primary i {
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #2a2a2d,
+            #151517
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   6. FILTER & SORT
+   ========================================================= */
+
+.controls-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+
+    background: #ffffff;
+
+    padding: 4px;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+
+    box-shadow: var(--shadow-subtle);
+
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+
+.filter-btn {
+    background: transparent;
+    border: none;
+
+    padding: 8px 16px;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    color: var(--text-muted);
+
+    border-radius: var(--radius-sm);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.filter-btn i {
+    font-size: 14px;
+}
+
+
+.filter-btn:hover {
+    color: var(--text-main);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5f5f6,
+            #eeeeef
+        );
+}
+
+
+.filter-btn.active {
+    background:
+        linear-gradient(
+            145deg,
+            #1d1d20,
+            #0b0b0d
+        );
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+.sort-wrapper {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    background: #ffffff;
+
+    padding: 8px 14px;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--border-light);
+
+    box-shadow: var(--shadow-subtle);
+
+    transition: var(--transition);
+}
+
+.sort-wrapper:hover {
+    border-color: #d1d1d5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.045);
+}
+
+
+.sort-label {
+    font-size: 0.8125rem;
+
+    color: var(--text-muted);
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.sort-label i {
+    font-size: 14px;
+}
+
+
+.sort-select {
+    border: none;
+
+    background: transparent;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    color: var(--text-main);
+
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* =========================================================
+   7. BOOKINGS GRID
+   ========================================================= */
+
+.bookings-grid {
+    display: grid;
+
+    gap: 20px;
+
+    grid-template-columns: 1fr;
+}
+
+
+/* =========================================================
+   8. BOOKING CARD
+   ========================================================= */
+
+.booking-card {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fdfdfd 100%
+        );
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-lg);
+
+    padding: 20px;
+
+    box-shadow: var(--shadow-card);
+
+    transition: var(--transition);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        cardAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+}
+
+.booking-card:hover {
+    box-shadow: var(--shadow-hover);
+
+    border-color: #d0d0d4;
+transform: translateY(-3px);
+}
+
+
+/* subtle top highlight */
+
+.booking-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 20px;
+    right: 20px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 0, 0, 0.07),
+            transparent
+        );
+}
+
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   9. CARD TOP
+   ========================================================= */
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px dashed #dedee2;
+
+    margin-bottom: 16px;
+}
+
+
+.booking-id {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    color: var(--text-main);
+
+    letter-spacing: 0.02em;
+}
+
+
+.booking-id i {
+    color: #8d8e95;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   10. STATUS
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    border-radius: 99px;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    border: 1px solid transparent;
+
+    transition: var(--transition);
+}
+
+
+.status-badge i {
+    font-size: 13px;
+}
+
+
+.status-badge.confirmed {
+    background:
+        linear-gradient(
+            145deg,
+            #f0fbf5,
+            #e7f7ef
+        );
+
+    color: var(--status-confirmed-text);
+
+    border-color: var(--status-confirmed-border);
+
+    box-shadow:
+        0 2px 5px rgba(8, 120, 79, 0.05);
+}
+
+
+.status-badge.pending {
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf0,
+            #fff6df
+        );
+
+    color: var(--status-pending-text);
+
+    border-color: var(--status-pending-border);
+
+    box-shadow:
+        0 2px 5px rgba(167, 101, 0, 0.05);
+}
+
+
+.status-badge.rejected {
+    background:
+        linear-gradient(
+            145deg,
+            #fff3f3,
+            #ffebeb
+        );
+
+    color: var(--status-rejected-text);
+
+    border-color: var(--status-rejected-border);
+
+    box-shadow:
+        0 2px 5px rgba(180, 35, 35, 0.05);
+}
+
+
+/* =========================================================
+   11. CARD MIDDLE
+   ========================================================= */
+
+.card-middle {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8f8f9,
+            #f2f2f4
+        );
+
+    padding: 10px 12px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 0.8125rem;
+
+    border: 1px solid #eeeeef;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+.meta-item {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--text-main);
+
+    font-weight: 500;
+}
+
+
+.meta-item i {
+    color: #77787f;
+
+    font-size: 15px;
+}
+
+
+.time-range {
+    direction: ltr;
+
+    unicode-bidi: isolate;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   12. SERVICES
+   ========================================================= */
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.services-label {
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    color: #85868d;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.services-label i {
+    font-size: 13px;
+}
+
+
+.services-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+
+.service-tag {
+    background:
+        linear-gradient(
+            145deg,
+            #f5f5f6,
+            #ececee
+        );
+
+    color: #2b2b2f;
+
+    font-size: 0.8125rem;
+
+    font-weight: 500;
+
+    padding: 5px 10px;
+
+    border-radius: var(--radius-sm);
+
+    border: 1px solid #e1e1e4;
+box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.025);
+
+    transition: var(--transition);
+}
+
+
+.service-tag:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #eeeeef,
+            #e7e7e9
+        );
+
+    border-color: #d6d6d9;
+}
+
+
+/* =========================================================
+   13. CARD BOTTOM
+   ========================================================= */
+
+.card-bottom {
+    padding-top: 14px;
+
+    border-top: 1px solid var(--border-subtle);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+}
+
+
+.price-label {
+    font-size: 0.75rem;
+
+    color: var(--text-muted);
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.price-label i {
+    font-size: 14px;
+}
+
+
+.price-value {
+    font-size: 1.125rem;
+
+    font-weight: 800;
+
+    color: #161618;
+}
+
+
+.price-currency {
+    font-size: 0.75rem;
+
+    font-weight: 400;
+
+    color: var(--text-muted);
+
+    margin-right: 2px;
+}
+
+
+/* =========================================================
+   14. EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fafafa
+        );
+
+    border: 1px dashed #d8d8dc;
+
+    border-radius: var(--radius-xl);
+
+    padding: 60px 24px;
+
+    text-align: center;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 480px;
+
+    margin: 40px auto;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.025);
+}
+
+
+.empty-state.visible {
+    display: flex;
+}
+
+
+.empty-icon-box {
+    width: 80px;
+    height: 80px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4f4f5,
+            #ebebed
+        );
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    color: #85868d;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #dedee1;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        0 5px 12px rgba(0, 0, 0, 0.035);
+}
+
+
+.empty-title {
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    color: var(--text-main);
+
+    margin-bottom: 8px;
+}
+
+
+.empty-desc {
+    font-size: 0.875rem;
+
+    color: var(--text-muted);
+
+    margin-bottom: 24px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   15. LOADING
+   ========================================================= */
+
+.order-loading {
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .page-wrapper {
+        padding: 16px 12px 40px 12px;
+    }
+
+    .page-header {
+        padding: 16px;
+    }
+
+    .header-text h1 {
+        font-size: 1.25rem;
+    }
+
+    .controls-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-tabs {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .filter-btn {
+        padding: 8px 10px;
+        font-size: 0.8125rem;
+
+        flex: 1;
+
+        justify-content: center;
+    }
+
+    .sort-wrapper {
+        justify-content: space-between;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+
+    .bookings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (min-width: 1024px) {
+
+    .bookings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (min-width: 1280px) {
+
+    .bookings-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}

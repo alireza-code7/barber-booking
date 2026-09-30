@@ -1,0 +1,19 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+
+# Backend
+api/.env
+api/vendor/
+api/*.log
+
+# Uploads
+backend/uploads/*
+!backend/uploads/README.md
+
+# General
+.DS_Store
+*.log

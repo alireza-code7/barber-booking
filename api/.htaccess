@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # اگر فایل یا پوشه واقعی وجود داشت، همان سرو شود
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  # همه درخواست‌های دیگر را به index.html هدایت کن
+  RewriteRule . /index.html [L]
+</IfModule>
